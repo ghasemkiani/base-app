@@ -44,6 +44,28 @@ const encdec = {
     let decipher = crypto.createDecipher("aes128", this.encKey);
     return decipher.update(cutil.asString(text), "hex", "utf8") + decipher.final("utf8");
   },
+  async toEncrypt(text) {
+    if(!this.encKey) {
+      throw new Error("Encryption key not found!");
+    }
+	let algorithm = "aes256";
+	let key = crypto.createHash("md5").update(this.encKey).digest("hex");
+	let iv = (await crypto.randomBytes(8)).toString("hex");
+    let cipher = crypto.createCipheriv(algorithm, key, iv);
+	return iv + cipher.update(Buffer.from(text).toString("utf8"), "utf8", "hex") + cipher.final("hex");
+  },
+  async toDecrypt(text) {
+    if(!this.encKey) {
+      throw new Error("Encryption key not found!");
+    }
+	text = cutil.asString(text);
+	let algorithm = "aes256";
+	let key = crypto.createHash("md5").update(this.encKey).digest("hex");
+	let iv = text.substring(0, 16);
+	text = text.substring(16);
+    let decipher = crypto.createDecipheriv(algorithm, key, iv);
+    return decipher.update(text, "hex", "utf8") + decipher.final("utf8");
+  },
 };
 
 module.exports = {encdec};
