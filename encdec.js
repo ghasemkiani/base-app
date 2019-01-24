@@ -44,17 +44,17 @@ const encdec = {
     let decipher = crypto.createDecipher("aes128", this.encKey);
     return decipher.update(cutil.asString(text), "hex", "utf8") + decipher.final("utf8");
   },
-  async toEncrypt(text) {
+  enc(text) {
     if(!this.encKey) {
       throw new Error("Encryption key not found!");
     }
 	let algorithm = "aes256";
 	let key = crypto.createHash("md5").update(this.encKey).digest("hex");
-	let iv = (await crypto.randomBytes(8)).toString("hex");
+	let iv = crypto.randomBytes(8).toString("hex");
     let cipher = crypto.createCipheriv(algorithm, key, iv);
 	return iv + cipher.update(Buffer.from(text).toString("utf8"), "utf8", "hex") + cipher.final("hex");
   },
-  async toDecrypt(text) {
+  dec(text) {
     if(!this.encKey) {
       throw new Error("Encryption key not found!");
     }
