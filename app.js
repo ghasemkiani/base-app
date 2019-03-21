@@ -5,8 +5,9 @@ const Preferences = require("preferences");
 const commander = require("commander");
 const {Base} = require("@ghasemkiani/commonbase/base");
 const {cutil} = require("@ghasemkiani/commonbase/cutil");
+const {irunner} = require("@ghasemkiani/commonbase/util/runner");
 
-class App extends Base {}
+class App extends cutil.extend(Base, irunner) {}
 cutil.extend(App.prototype, {
 	commander: commander,
 	prefsId: "app.temp",
@@ -60,7 +61,7 @@ cutil.extend(App.prototype, {
 		this.parseInitOptions();
 		await this.toApplyInitOptions();
 		await this.toAskInitOptions();
-		await this.toRun();
+		await super.toStart();
 	},
 	async toRun() {
 		//
