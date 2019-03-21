@@ -56,12 +56,12 @@ cutil.extend(App.prototype, {
 	async toAskInitOptions() {
 		//
 	},
-	async toStart() {
+	async toDoStart() {
 		this.defineInitOptions();
 		this.parseInitOptions();
 		await this.toApplyInitOptions();
 		await this.toAskInitOptions();
-		await super.toStart();
+		await this.toRun();
 	},
 	async toRun() {
 		//
