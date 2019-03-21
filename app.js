@@ -7,7 +7,7 @@ const {Base} = require("@ghasemkiani/commonbase/base");
 const {cutil} = require("@ghasemkiani/commonbase/cutil");
 const {irunner} = require("@ghasemkiani/commonbase/util/runner");
 
-class App extends cutil.extend(Base, irunner) {}
+class App extends cutil.mixin(Base, irunner) {}
 cutil.extend(App.prototype, {
 	commander: commander,
 	prefsId: "app.temp",
