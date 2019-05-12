@@ -1,6 +1,5 @@
 //	@ghasemkiani/baseapp/storable
 
-const path = require("path");
 const fs = require("fs");
 
 const {cutil} = require("@ghasemkiani/commonbase/cutil");
@@ -11,7 +10,7 @@ const storable = {
 	defaultStore: {},
 	get storeFile() {
 		if(!this._storeFile) {
-			this._storeFile = path.join(path.dirname(module.filename), "data.json");
+			this._storeFile = "data.json";
 		}
 		return this._storeFile;
 	},

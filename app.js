@@ -57,6 +57,7 @@ cutil.extend(App.prototype, {
 		//
 	},
 	async toDoStart() {
+		console.log(`toDoStart`);
 		this.defineInitOptions();
 		this.parseInitOptions();
 		await this.toApplyInitOptions();
