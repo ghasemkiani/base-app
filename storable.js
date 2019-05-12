@@ -1,5 +1,7 @@
 //	@ghasemkiani/baseapp/storable
 
+const fs = require("fs");
+
 const {cutil} = require("@ghasemkiani/commonbase/cutil");
 
 const storable = {
