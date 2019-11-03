@@ -1,6 +1,6 @@
 {
   "name": "@ghasemkiani/baseapp",
-  "version": "3.8.1",
+  "version": "3.8.2",
   "description": "Base app",
   "main": "index.js",
   "scripts": {
@@ -23,8 +23,8 @@
   "homepage": "https://github.com/ghasemkiani/baseapp#readme",
   "dependencies": {
     "@ghasemkiani/commonbase": "github:ghasemkiani/commonbase",
-    "commander": "^2.20.0",
-    "graceful-fs": "^4.1.11",
+    "commander": "^2.20.3",
+    "graceful-fs": "^4.2.3",
     "os-homedir": "^1.0.2",
     "preferences": "^1.0.2"
   },
