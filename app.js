@@ -3,9 +3,9 @@
 const path = require("path");
 const Preferences = require("preferences");
 const {Command} = require("commander");
-const {Base} = require("@ghasemkiani/commonbase/base");
-const {cutil} = require("@ghasemkiani/commonbase/cutil");
-const {irunner} = require("@ghasemkiani/commonbase/util/runner");
+const {Obj: Base} = require("@ghasemkiani/base/obj");
+const {cutil} = require("@ghasemkiani/base/cutil");
+const {irunner} = require("@ghasemkiani/base-utils/runner");
 
 class App extends cutil.mixin(Base, irunner) {
 	get commander() {

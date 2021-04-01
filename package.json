@@ -1,6 +1,6 @@
 {
-  "name": "@ghasemkiani/baseapp",
-  "version": "3.10.1",
+  "name": "@ghasemkiani/base-app",
+  "version": "3.11.0",
   "description": "Base app",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ghasemkiani/baseapp.git"
+    "url": "git+https://github.com/ghasemkiani/base-app.git"
   },
   "keywords": [
     "javascript",
@@ -17,11 +17,12 @@
   "author": "Ghasem Kiani",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ghasemkiani/baseapp/issues"
+    "url": "https://github.com/ghasemkiani/base-app/issues"
   },
-  "homepage": "https://github.com/ghasemkiani/baseapp#readme",
+  "homepage": "https://github.com/ghasemkiani/base-app#readme",
   "dependencies": {
-    "@ghasemkiani/commonbase": "github:ghasemkiani/commonbase",
+    "@ghasemkiani/base": "github:ghasemkiani/base",
+    "@ghasemkiani/base-utils": "github:ghasemkiani/base-utils",
     "commander": "^7.2.0",
     "graceful-fs": "^4.2.6",
     "os-homedir": "^2.0.0",

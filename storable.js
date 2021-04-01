@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 
-const {cutil} = require("@ghasemkiani/commonbase/cutil");
+const {cutil} = require("@ghasemkiani/base/cutil");
 
 const storable = {
 	_storeFile: null,

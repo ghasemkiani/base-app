@@ -4,7 +4,7 @@ const path = require("path");
 const fs = require("graceful-fs");
 const getHomedir = require("os-homedir");
 const crypto = require("crypto");
-const {cutil} = require("@ghasemkiani/commonbase/cutil");
+const {cutil} = require("@ghasemkiani/base/cutil");
 
 const encdec = {
 	_encKeyPath: null,
