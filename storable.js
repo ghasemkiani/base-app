@@ -1,4 +1,4 @@
-//	@ghasemkiani/baseapp/storable
+//	@ghasemkiani/base-app/storable
 
 const fs = require("fs");
 

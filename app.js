@@ -1,4 +1,4 @@
-//	@ghasemkiani/baseapp/app
+//	@ghasemkiani/base-app/app
 
 const path = require("path");
 const Preferences = require("preferences");

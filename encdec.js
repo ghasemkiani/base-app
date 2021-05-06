@@ -1,8 +1,8 @@
-//	@ghasemkiani/baseapp/encdec
+//	@ghasemkiani/base-app/encdec
 
 const path = require("path");
 const fs = require("graceful-fs");
-const getHomedir = require("os-homedir");
+const os = require("os");
 const crypto = require("crypto");
 const {cutil} = require("@ghasemkiani/base/cutil");
 
@@ -10,7 +10,7 @@ const encdec = {
 	_encKeyPath: null,
 	get encKeyPath() {
 		if (!this._encKeyPath) {
-			const homedir = getHomedir();
+			const homedir = os.homedir();
 			this._encKeyPath = path.join(homedir, ".ssh", "id_rsa");
 		}
 		return this._encKeyPath;
