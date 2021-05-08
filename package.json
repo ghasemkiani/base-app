@@ -1,6 +1,6 @@
 {
   "name": "@ghasemkiani/base-app",
-  "version": "3.12.0",
+  "version": "3.13.0",
   "description": "Base app",
   "main": "index.js",
   "scripts": {
