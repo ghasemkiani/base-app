@@ -1,5 +1,6 @@
 //	@ghasemkiani/base-app/app
 
+const os = require("os");
 const path = require("path");
 const Preferences = require("preferences");
 const {Command} = require("commander");
@@ -9,7 +10,7 @@ const {irunner} = require("@ghasemkiani/base-utils/runner");
 
 class App extends cutil.mixin(Base, irunner) {
 	get commander() {
-		if(!this._commander) {
+		if (!this._commander) {
 			this._commander = new Command();
 		}
 		return this._commander;
@@ -18,8 +19,13 @@ class App extends cutil.mixin(Base, irunner) {
 		this._commander = commander;
 	}
 	get prefsFile() {
-		if(!this._prefsFile && this.useLocalPrefsFile) {
-			this._prefsFile = path.join(path.dirname(module.filename), this.prefsId + ".prefs.json");
+		if (!this._prefsFile) {
+			let fname = this.prefsId + ".prefs.json";
+			if (this.useLocalPrefsFile) {
+				this._prefsFile = path.join(path.dirname(module.filename), fname);
+			} else {
+				this._prefsFile = path.join(os.homedir(), fname);
+			}
 		}
 		return this._prefsFile;
 	}
@@ -32,7 +38,7 @@ class App extends cutil.mixin(Base, irunner) {
 				encrypt: this.prefsEncrypt,
 				format: this.prefsFormat,
 			};
-			if(this.prefsFile) {
+			if (this.prefsFile) {
 				options.file = this.prefsFile;
 			}
 			this._prefs = new Preferences(this.prefsId, this.defaultPrefs, options);
@@ -50,7 +56,7 @@ class App extends cutil.mixin(Base, irunner) {
 	}
 	async toApplyInitOptions() {
 		let opts = this.commander.opts();
-		if(!cutil.isNil(opts.prefs)) {
+		if (!cutil.isNil(opts.prefs)) {
 			this.prefsFile = opts.prefs;
 		}
 	}
