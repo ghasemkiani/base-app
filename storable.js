@@ -1,8 +1,8 @@
 //	@ghasemkiani/base-app/storable
 
-const fs = require("fs");
+import fs from "fs";
 
-const {cutil} = require("@ghasemkiani/base/cutil");
+import {cutil} from "@ghasemkiani/base";
 
 const storable = {
 	_storeFile: null,
@@ -46,4 +46,4 @@ const storable = {
 	},
 };
 
-module.exports = {storable};
+export {storable};

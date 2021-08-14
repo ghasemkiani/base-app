@@ -1,14 +1,16 @@
 //	@ghasemkiani/base-app/app
 
-const os = require("os");
-const path = require("path");
-const Preferences = require("preferences");
-const {Command} = require("commander");
-const {Obj: Base} = require("@ghasemkiani/base/obj");
-const {cutil} = require("@ghasemkiani/base/cutil");
-const {irunner} = require("@ghasemkiani/base-utils/runner");
+import os from "os";
+import path from "path";
 
-class App extends cutil.mixin(Base, irunner) {
+import Preferences from "preferences";
+import {Command} from "commander";
+
+import {Obj} from "@ghasemkiani/base";
+import {cutil} from "@ghasemkiani/base";
+import {irunner} from "@ghasemkiani/base-utils";
+
+class App extends cutil.mixin(Obj, irunner) {
 	get commander() {
 		if (!this._commander) {
 			this._commander = new Command();
@@ -85,4 +87,4 @@ cutil.extend(App.prototype, {
 	defaultPrefs: {},
 });
 
-module.exports = {App};
+export {App};

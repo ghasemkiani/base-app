@@ -1,6 +1,7 @@
 //	@ghasemkiani/base-app
 
-const {App} = require("@ghasemkiani/base-app/app");
-const {encdec} = require("@ghasemkiani/base-app/encdec");
+import {App} from "./app.js";
+import {encdec} from "./encdec.js";
+import {storable} from "./storable.js";
 
-module.exports = {App, encdec};
+export {App, encdec, storable};

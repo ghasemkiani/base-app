@@ -1,10 +1,12 @@
 //	@ghasemkiani/base-app/encdec
 
-const path = require("path");
-const fs = require("graceful-fs");
-const os = require("os");
-const crypto = require("crypto");
-const {cutil} = require("@ghasemkiani/base/cutil");
+import os from "os";
+import path from "path";
+import crypto from "crypto";
+
+import fs from "graceful-fs";
+
+import {cutil} from "@ghasemkiani/base";
 
 const encdec = {
 	_encKeyPath: null,
@@ -68,4 +70,4 @@ const encdec = {
 	},
 };
 
-module.exports = {encdec};
+export {encdec};
