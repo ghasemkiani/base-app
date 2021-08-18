@@ -24,7 +24,7 @@ class App extends cutil.mixin(Obj, irunner) {
 		if (!this._prefsFile) {
 			let fname = this.prefsId + ".prefs.json";
 			if (this.useLocalPrefsFile) {
-				this._prefsFile = path.join(path.dirname(module.filename), fname);
+				this._prefsFile = path.join(path.dirname(cutil.getUrlFilename(import.meta.url)), fname);
 			} else {
 				this._prefsFile = path.join(os.homedir(), fname);
 			}
