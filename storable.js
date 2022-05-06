@@ -1,16 +1,23 @@
 //	@ghasemkiani/base-app/storable
 
-import fs from "fs";
+import os from "node:os";
+import path from "node:path";
+import fs from "node:fs";
 
 import {cutil} from "@ghasemkiani/base";
 
 const storable = {
+	// prefsId: "app.tmp",
 	_storeFile: null,
 	_store: null,
 	defaultStore: {},
+	autoSaveStore: true,
+	getDefaultStoreFile() {
+		return path.join(os.homedir(), `.${this.prefsId}`, `${this.prefsId}.store.json`);
+	},
 	get storeFile() {
 		if(!this._storeFile) {
-			this._storeFile = "data.json";
+			this._storeFile = this.getDefaultStoreFile();
 		}
 		return this._storeFile;
 	},
@@ -20,7 +27,9 @@ const storable = {
 	get store() {
 		if(!this._store) {
 			this.readStore();
-			process.on("exit", () => this.writeStore());
+			if (this.autoSaveStore) {
+				process.on("exit", () => this.writeStore());
+			}
 		}
 		return this._store;
 	},
