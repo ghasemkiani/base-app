@@ -50,10 +50,10 @@ class App extends cutil.mixin(Obj, irunner) {
 	set prefs(prefs) {
 		this._prefs = prefs;
 	}
-	parseInitOptions() {
-		this.commander.parse(process.argv);
+	async toParseInitOptions() {
+		await this.commander.parseAsync(process.argv);
 	}
-	defineInitOptions() {
+	async toDefineInitOptions() {
 		this.commander.option("--prefs <prefs>", "The path to the preferences file");
 	}
 	async toApplyInitOptions() {
@@ -66,8 +66,8 @@ class App extends cutil.mixin(Obj, irunner) {
 		//
 	}
 	async toDoStart() {
-		this.defineInitOptions();
-		this.parseInitOptions();
+		await this.toDefineInitOptions();
+		await this.toParseInitOptions();
 		await this.toApplyInitOptions();
 		await this.toAskInitOptions();
 		await this.toRun();
@@ -78,12 +78,12 @@ class App extends cutil.mixin(Obj, irunner) {
 }
 cutil.extend(App.prototype, {
 	_commander: null,
-	prefsId: "app.temp",
 	prefsEncrypt: false,
 	prefsFormat: "json",
 	useLocalPrefsFile: false,
 	_prefsFile: null,
 	_prefs: null,
+	prefsId: "app.temp",
 	defaultPrefs: {},
 });
 
