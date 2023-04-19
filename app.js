@@ -73,7 +73,8 @@ class App extends cutil.mixin(Obj, irunner) {
 		await this.toRun();
 	}
 	async toRun() {
-		//
+		let app = this;
+		app.pub("run");
 	}
 }
 cutil.extend(App.prototype, {
