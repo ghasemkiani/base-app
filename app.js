@@ -1,7 +1,7 @@
 //	@ghasemkiani/base-app/app
 
-import os from "os";
-import path from "path";
+import os from "node:os";
+import path from "node:path";
 
 import Preferences from "preferences";
 import {Command} from "commander";
@@ -11,6 +11,18 @@ import {cutil} from "@ghasemkiani/base";
 import {irunner} from "@ghasemkiani/base-utils";
 
 class App extends cutil.mixin(Obj, irunner) {
+	static {
+		cutil.extend(this.prototype, {
+			_commander: null,
+			prefsEncrypt: false,
+			prefsFormat: "json",
+			useLocalPrefsFile: false,
+			_prefsFile: null,
+			_prefs: null,
+			prefsId: "app.temp",
+			defaultPrefs: {},
+		});
+	}
 	get commander() {
 		if (!this._commander) {
 			this._commander = new Command();
@@ -73,19 +85,8 @@ class App extends cutil.mixin(Obj, irunner) {
 		await this.toRun();
 	}
 	async toRun() {
-		let app = this;
-		app.pub("run");
+		this.pub("run");
 	}
 }
-cutil.extend(App.prototype, {
-	_commander: null,
-	prefsEncrypt: false,
-	prefsFormat: "json",
-	useLocalPrefsFile: false,
-	_prefsFile: null,
-	_prefs: null,
-	prefsId: "app.temp",
-	defaultPrefs: {},
-});
 
 export {App};
