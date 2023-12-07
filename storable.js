@@ -48,7 +48,7 @@ const storable = {
 	},
 	writeStore() {
 		try {
-			fs.writeFileSync(this.storeFile, JSON.stringify(this._store), {encoding: "UTF-8"});
+			fs.writeFileSync(this.storeFile, JSON.stringify(this._store, null, "\t"), {encoding: "UTF-8"});
 		} catch(e) {
 			console.log("Error in writeStore:\n" + e.message);
 		}

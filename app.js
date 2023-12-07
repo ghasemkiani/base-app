@@ -16,7 +16,6 @@ class App extends cutil.mixin(Obj, irunner) {
 			_commander: null,
 			prefsEncrypt: false,
 			prefsFormat: "json",
-			useLocalPrefsFile: false,
 			_prefsFile: null,
 			_prefs: null,
 			prefsId: "app.temp",
@@ -35,11 +34,7 @@ class App extends cutil.mixin(Obj, irunner) {
 	get prefsFile() {
 		if (!this._prefsFile) {
 			let fname = this.prefsId + ".prefs.json";
-			if (this.useLocalPrefsFile) {
-				this._prefsFile = path.join(path.dirname(cutil.getUrlFilename(import.meta.url)), fname);
-			} else {
-				this._prefsFile = path.join(os.homedir(), fname);
-			}
+			this._prefsFile = path.join(os.homedir(), fname);
 		}
 		return this._prefsFile;
 	}
@@ -67,11 +62,16 @@ class App extends cutil.mixin(Obj, irunner) {
 	}
 	async toDefineInitOptions() {
 		this.commander.option("--prefs <prefs>", "The path to the preferences file");
+		this.commander.option("--reset", "Reset the preferences");
 	}
 	async toApplyInitOptions() {
 		let opts = this.commander.opts();
-		if (!cutil.isNil(opts.prefs)) {
+		if (cutil.a(opts.prefs)) {
 			this.prefsFile = opts.prefs;
+		}
+		if (cutil.a(opts.reset)) {
+			this.prefs.clear();
+			cutil.assign(this.prefs, this.defaultPrefs);
 		}
 	}
 	async toAskInitOptions() {
