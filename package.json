@@ -1,6 +1,6 @@
 {
 	"name": "@ghasemkiani/base-app",
-	"version": "4.3.2",
+	"version": "4.4.0",
 	"description": "Base app",
 	"type": "module",
 	"main": "index.js",
@@ -25,7 +25,6 @@
 		"@ghasemkiani/base": "github:ghasemkiani/base",
 		"@ghasemkiani/base-utils": "github:ghasemkiani/base-utils",
 		"commander": "^10.0.0",
-		"graceful-fs": "^4.2.6",
 		"preferences": "^2.0.2"
 	}
 }

@@ -1,5 +1,3 @@
-//	@ghasemkiani/base-app/app
-
 import os from "node:os";
 import path from "node:path";
 
@@ -71,7 +69,7 @@ class App extends cutil.mixin(Obj, irunner) {
 		}
 		if (cutil.a(opts.reset)) {
 			this.prefs.clear();
-			cutil.assign(this.prefs, this.defaultPrefs);
+			cutil.assign(this.prefs, cutil.clone(this.defaultPrefs));
 		}
 	}
 	async toAskInitOptions() {
