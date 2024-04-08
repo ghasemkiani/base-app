@@ -1,6 +1,7 @@
 import os from "node:os";
 import path from "node:path";
 
+import "dotenv/config";
 import Preferences from "preferences";
 import {Command} from "commander";
 
