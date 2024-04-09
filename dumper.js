@@ -5,10 +5,13 @@ const dumper = {
 		this.commander.option("--dump", "Show the preference");
 	},
 	async toApplyInitOptionsDumper() {
-		let opts = this.commander.opts();
+		let app = this;
+		let opts = app.commander.opts();
 		if (cutil.a(opts.dump)) {
-			console.log(this.prefsFile);
-			console.log(JSON.stringify(this.prefs, null, 2));
+			app.sub("run", () => {
+				console.log(app.prefsFile);
+				console.log(JSON.stringify(app.prefs, null, 2));
+			});
 		}
 	},
 };
