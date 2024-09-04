@@ -54,7 +54,7 @@ const storable = {
     try {
       fs.writeFileSync(
         this.storeFile,
-        JSON.stringify(this._store, null, "\t"),
+        JSON.stringify(this._store, null, 2),
         { encoding: "UTF-8" }
       );
     } catch (e) {
