@@ -1,6 +1,6 @@
 {
 	"name": "@ghasemkiani/base-app",
-	"version": "4.4.7",
+	"version": "4.4.8",
 	"description": "Base app",
 	"type": "module",
 	"main": "index.js",
