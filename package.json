@@ -1,11 +1,10 @@
 {
 	"name": "@ghasemkiani/base-app",
-	"version": "4.4.8",
+	"version": "4.4.9",
 	"description": "Base app",
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
-		"start": "node .",
 		"test": "node --test"
 	},
 	"repository": {

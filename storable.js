@@ -14,7 +14,7 @@ const storable = {
     return path.join(
       os.homedir(),
       `.${this.prefsId}`,
-      `${this.prefsId}.store.json`
+      `${this.prefsId}.store.json`,
     );
   },
   get storeFile() {
@@ -41,7 +41,7 @@ const storable = {
   readStore() {
     try {
       this._store = JSON.parse(
-        fs.readFileSync(this.storeFile, { encoding: "UTF-8" })
+        fs.readFileSync(this.storeFile, { encoding: "UTF-8" }),
       );
     } catch (e) {
       console.log("Error in readStore:\n" + e.message);

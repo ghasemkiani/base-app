@@ -62,7 +62,7 @@ class App extends cutil.mixin(Obj, irunner) {
   async toDefineInitOptions() {
     this.commander.option(
       "--prefs <prefs>",
-      "The path to the preferences file"
+      "The path to the preferences file",
     );
     this.commander.option("--reset", "Reset the preferences");
   }
