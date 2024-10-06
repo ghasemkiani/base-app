@@ -64,8 +64,8 @@ const storable = {
   },
   async toDefineInitOptionsStorable() {
     let app = this;
-    app.commander.option("--store <store>", "set store file path");
     app.commander.option("--set-store <store>", "set store file path persistently");
+    app.commander.option("--store <store>", "set store file path");
   },
   async toApplyInitOptionsStorable() {
     let app = this;
