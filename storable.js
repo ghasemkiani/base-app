@@ -6,6 +6,9 @@ import { cutil } from "@ghasemkiani/base";
 
 const storable = {
   // prefsId: "app.tmp",
+  defaultPrefsStorable: {
+    storeFile: null,
+  },
   _storeFile: null,
   _store: null,
   defaultStore: {},
@@ -19,7 +22,7 @@ const storable = {
   },
   get storeFile() {
     if (!this._storeFile) {
-      this._storeFile = this.getDefaultStoreFile();
+      this._storeFile = this.prefs.storeFile || this.getDefaultStoreFile();
     }
     return this._storeFile;
   },
@@ -57,6 +60,22 @@ const storable = {
       });
     } catch (e) {
       console.log("Error in writeStore:\n" + e.message);
+    }
+  },
+  async toDefineInitOptionsStorable() {
+    let app = this;
+    app.commander.option("--store <store>", "set store file path");
+    app.commander.option("--set-store <store>", "set store file path persistently");
+  },
+  async toApplyInitOptionsStorable() {
+    let app = this;
+    let opts = app.commander.opts();
+    if (cutil.a(opts.setStore)) {
+      app.storeFile = null;
+      app.prefs.storeFile = opts.setStore;
+    }
+    if (cutil.a(opts.store)) {
+      app.storeFile = opts.store;
     }
   },
 };

@@ -1,6 +1,7 @@
 import { cutil } from "@ghasemkiani/base";
 
 const dumper = {
+  defaultPrefsDumper: {},
   async toDefineInitOptionsDumper() {
     this.commander.option("--dump", "Show the preference");
   },
