@@ -55,6 +55,10 @@ const storable = {
   },
   writeStore() {
     try {
+      let folder = path.dirname(this.storeFile);
+      if (!fs.existsSync(folder)) {
+        fs.mkdirSync(folder, { recursive: true });
+      }
       fs.writeFileSync(this.storeFile, JSON.stringify(this._store, null, 2), {
         encoding: "UTF-8",
       });
