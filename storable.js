@@ -50,7 +50,7 @@ const storable = {
       console.log("Error in readStore:\n" + e.message);
     }
     if (cutil.isNil(this._store)) {
-      this._store = this.defaultStore;
+      this._store = cutil.clone(this.defaultStore);
     }
   },
   writeStore() {
