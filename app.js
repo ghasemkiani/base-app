@@ -1,18 +1,13 @@
 import os from "node:os";
 import path from "node:path";
-import url from "node:url";
 
-import dotenv from "dotenv";
+import "dotenv/config";
 import Preferences from "preferences";
 import { Command } from "commander";
 
 import { Obj } from "@ghasemkiani/base";
 import { cutil } from "@ghasemkiani/base";
 import { irunner } from "@ghasemkiani/base-utils";
-
-dotenv.config({
-  path: path.join((path.dirname(url.fileURLToPath(import.meta.url))), ".env"),
-});
 
 class App extends cutil.mixin(Obj, irunner) {
   static {
