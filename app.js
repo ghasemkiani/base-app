@@ -18,6 +18,7 @@ class App extends cutil.mixin(Obj, irunner) {
       _prefsFile: null,
       _prefs: null,
       prefsId: "app.temp",
+      verbose: false,
       defaultPrefs: {},
     });
   }
@@ -65,6 +66,7 @@ class App extends cutil.mixin(Obj, irunner) {
       "The path to the preferences file",
     );
     this.commander.option("--reset", "Reset the preferences");
+    this.commander.option("-v, --verbose", "Set verbose mode for output");
   }
   async toApplyInitOptions() {
     let opts = this.commander.opts();
@@ -74,6 +76,9 @@ class App extends cutil.mixin(Obj, irunner) {
     if (cutil.a(opts.reset)) {
       this.prefs.clear();
       cutil.assign(this.prefs, cutil.clone(this.defaultPrefs));
+    }
+    if (cutil.a(opts.verbose)) {
+      this.verbose = true;
     }
   }
   async toAskInitOptions() {
