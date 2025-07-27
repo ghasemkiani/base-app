@@ -14,7 +14,8 @@ const infoer = {
       });
   },
   async toApplyInitOptionsInfoer() {},
-  async toShowInfo() {
+  async toShowInfo() {},
+  async toShowInfoInfoer() {
     let app = this;
     console.log(`app.prefsFile: ${app.prefsFile}`);
   },
