@@ -6,6 +6,7 @@ const infoer = {
     let app = this;
     app.commander
       .command("info")
+      .alias("?")
       .description("show app info")
       .action(async () => {
         app.sub("run", async () => {
