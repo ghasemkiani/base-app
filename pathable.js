@@ -2,7 +2,6 @@ import path from "node:path";
 import url from "node:url";
 
 import { cutil } from "@ghasemkiani/base";
-import { Textual } from "@ghasemkiani/base";
 
 const pathable = {
   urlBase: null,
