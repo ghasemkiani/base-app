@@ -18,6 +18,12 @@ const indever = {
 	set indev(indev) {
 		this._indev = indev;
 	},
+  get inprod() {
+		return !this.indev;
+	},
+	set inprod(inprod) {
+		this.indev = cutil.na(inprod) ? null : !inprod;
+	},
 	async toDefineInitOptionsIndever() {
 		let app = this;
 		app.commander.option("--indev", "set env as development");
