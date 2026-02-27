@@ -22,7 +22,7 @@ const signer = {
   },
   async toDefineInitOptionsSigner() {
     let app = this;
-    app.commander.option("--set-signing-key <signingKey>", "set signing key persistently");
+    app.commander.option("--set-signing-key <signingKey>", "set signing key persistently (set to empty string to remove current value)");
 		app.commander.command("reveal-signing-key")
 			.description("reveal the app's signing key")
 			.option("-y, --yes", "do not ask for confirmation when revealing the signing key")
@@ -35,8 +35,8 @@ const signer = {
   async toApplyInitOptionsSigner() {
     let app = this;
     let opts = app.commander.opts();
-    if (cutil.a(opts.setSigningKey)) {
-      app.signingKey = opts.setSigningKey;
+    if (!cutil.isNil(opts.setSigningKey)) {
+      app.signingKey = cutil.na(opts.setSigningKey) ? null : opts.setSigningKey;
     }
   },
   async toRevealSigningKey({ yes }) {
