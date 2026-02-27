@@ -5,3 +5,4 @@ export * from "./dumper.js";
 export * from "./infoer.js";
 export * from "./indever.js";
 export * from "./pathable.js";
+export * from "./signer.js";

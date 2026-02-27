@@ -1,6 +1,6 @@
 {
   "name": "@ghasemkiani/base-app",
-  "version": "4.4.25",
+  "version": "4.4.26",
   "description": "Base app",
   "type": "module",
   "main": "index.js",
@@ -24,6 +24,7 @@
   "dependencies": {
     "@ghasemkiani/base": "github:ghasemkiani/base",
     "@ghasemkiani/base-utils": "github:ghasemkiani/base-utils",
+    "@ghasemkiani/io": "github:ghasemkiani/io",
     "commander": "^10.0.0",
     "dotenv": "^16.4.5",
     "preferences": "^2.0.2"
