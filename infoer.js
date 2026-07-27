@@ -15,10 +15,6 @@ const infoer = {
       });
   },
   async toApplyInitOptionsInfoer() {},
-  async toShowInfo() {
-    let app = this;
-    await app.toShowInfoInfoer();
-  },
   async toShowInfoInfoer() {
     let app = this;
     console.log(`app.prefsFile: ${app.prefsFile}`);

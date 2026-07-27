@@ -11,7 +11,7 @@ const signer = {
     if (cutil.na(this.prefs.signingKey)) {
         this.prefs.signingKey = crypto.randomBytes(32).toString("hex");
     }
-    return Buffer.from(this.prefs.signingKey, "hex");
+    return this.prefs.signingKey;
   },
   set signingKey(signingKey) {
     if (Buffer.isBuffer(signingKey)) {

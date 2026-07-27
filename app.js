@@ -84,6 +84,9 @@ class App extends cutil.mixin(Obj, irunner) {
   async toAskInitOptions() {
     //
   }
+  async toShowInfo() {
+    //
+  }
   async toDoStart() {
     await this.toDefineInitOptions();
     await this.toParseInitOptions();
